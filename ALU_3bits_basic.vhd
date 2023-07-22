@@ -14,14 +14,14 @@
 ---                              ***  TABELA DA VERDADE E ESQUEMA ****
 ---  =============================================================================================
 ---                                                                              O            
----         sel[0]     sel[1]     sel[2]    |      O                             |
+---         sel[0]     sel[1]     sel[2]    |      O                            ||||
 ---       -------------------------------------------------              ------------------
----           0          0           0      |    A + B                 /                   \----- sel[0]
----           0          0           1      |    A - B                /       /------\       \--- sel[1]
----           0          1           0      |    A and B             /       /        \        \
+---           0          0           0      |    A + B                 /                   \------ sel[0]
+---           0          0           1      |    A - B                /       /------\       \---- sel[1]
+---           0          1           0      |    A and B             /       /        \        \-- sel[2]
 ---           0          1           1      |    A or B             /-------/          \--------\
----           1          0           0      |    A xor B                |                  |
----           1          0           1      |    not A                  A                  B
+---           1          0           0      |    A xor B              ||||                  ||||
+---           1          0           1      |    not A                  A                     B
 ---           1          1           0      |    not B
 ---           1          1           1      |      Z
 ---
@@ -43,7 +43,7 @@ architecture hardware of alu is                         --- Inicia as configuraÃ
 begin
   process(A,B,sel)                                      --- Estabelece uma linha de comandos a serem executados sequencialmente.
   begin                                                 --- Inicia os comandos na rotina "process" abaixo de begin.         
-    case sel is                    
+    case sel is                                         --- 
       when "000" => O <= A + B;
       when "001" => O <= A - B;
       when "010" => O <= A AND B;
