@@ -37,7 +37,7 @@ entity ALU_3bits is port                                --- Define uma entidade 
   O      out     :    std_logic_vector(3 downto 0);     --- Define um barramento de 3 bits como saída da ALU.
   sel    in      :    std_logic_vector(2 downto 0)      --- Define um barramento de entrada de 3 bits como seleção da ALU.
 );
-end ALU_3bita;                                                --- Encerra as definições de pino para a entidade "alu".
+end ALU_3bits;                                                --- Encerra as definições de pino para a entidade "alu".
 
 architecture hardware of ALU_3bits is                   --- Inicia as configurações de hardware interno da "alu".
 begin                                                   --- Inicia as configurações de hardware interno da "alu".
