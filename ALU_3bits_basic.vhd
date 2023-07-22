@@ -40,19 +40,19 @@ entity alu is port                                      --- Define uma entidade 
 end alu;                                                --- Encerra as definições de pino para a entidade "alu".
 
 architecture hardware of alu is                         --- Inicia as configurações de hardware interno da "alu".
-begin
+begin                                                   --- Inicia as configurações de hardware interno da "alu".
   process(A,B,sel)                                      --- Estabelece uma linha de comandos a serem executados sequencialmente.
   begin                                                 --- Inicia os comandos na rotina "process" abaixo de begin.         
-    case sel is                                         --- 
-      when "000" => O <= A + B;
-      when "001" => O <= A - B;
-      when "010" => O <= A AND B;
-      when "011" => O <= A OR B;
-      when "100" => O <= A XOR B;
-      when "101" => O <= NOT A;
-      when "110" => O <= NOT B;
-      when "111" => O <= Z;
-    end case;
-  end process;
-end hardware;
+    case sel is                                         --- Comaando que executa as funções abaixo caso "sel" atenda a condição atribuida.
+      when "000" => O <= A + B;                         --- Enquanto o sel = "000", indica a saída 'O' como a operação A + B.
+      when "001" => O <= A - B;                         --- Enquanto o sel = "001", indica a saída 'O' como a operação A - B.
+      when "010" => O <= A AND B;                       --- Enquanto o sel = "010", indica a saída 'O' como a operação lógica A and B.
+      when "011" => O <= A OR B;                        --- Enquanto o sel = "011", indica a saída 'O' como a operação lógica A or B.
+      when "100" => O <= A XOR B;                       --- Enquanto o sel = "100", indica a saída 'O' como a operação lógica A xor B.
+      when "101" => O <= NOT A;                         --- Enquanto o sel = "101", indica a saída 'O' como a operação lógica not A.
+      when "110" => O <= NOT B;                         --- Enquanto o sel = "110", indica a saída 'O' como a operação lógica not B.
+      when "111" => O <= Z;                             --- Enquanto o sel = "111", indica a saída 'O' como sendo uma impedância alta.
+    end case;                                           --- Encerra o case.
+  end process;                                          --- Enecrra a execução do código em sequencial.
+end hardware;                                           --- Finaliza a configuração de harware da ALU.
         
