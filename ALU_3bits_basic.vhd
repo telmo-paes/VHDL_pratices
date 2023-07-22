@@ -31,15 +31,15 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
 
-entity alu is port                                      --- Define uma entidade "alu" com pinos de entrada e saída.
+entity ALU_3bits is port                                --- Define uma entidade "alu" com pinos de entrada e saída.
 (
   A,B    in      :    std_logic_vector(3 downto 0);     --- Define dois barramentos de 3 bits de entrada A e B.
   O      out     :    std_logic_vector(3 downto 0);     --- Define um barramento de 3 bits como saída da ALU.
-  sel    in      :    std_logic_vector(2 downto 0)     --- Define um barramento de entrada de 3 bits como seleção da ALU.
+  sel    in      :    std_logic_vector(2 downto 0)      --- Define um barramento de entrada de 3 bits como seleção da ALU.
 );
-end alu;                                                --- Encerra as definições de pino para a entidade "alu".
+end ALU_3bita;                                                --- Encerra as definições de pino para a entidade "alu".
 
-architecture hardware of alu is                         --- Inicia as configurações de hardware interno da "alu".
+architecture hardware of ALU_3bits is                   --- Inicia as configurações de hardware interno da "alu".
 begin                                                   --- Inicia as configurações de hardware interno da "alu".
   process(A,B,sel)                                      --- Estabelece uma linha de comandos a serem executados sequencialmente.
   begin                                                 --- Inicia os comandos na rotina "process" abaixo de begin.         
