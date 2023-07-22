@@ -22,7 +22,7 @@ architecture hardware of bcd7seg is
 begin
   process(dig_4bits,seg7)
   begin
-    case input_4bits is
+    case dig_4bits is
       when "0000" => seg7 <= "11000000";
       when "0001" => seg7 <= "11111001"; 
       when "0010" => seg7 <= "10100100";
