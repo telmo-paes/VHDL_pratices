@@ -37,7 +37,7 @@ entity ALU_3bits is port                                --- Define uma entidade 
   O      out     :    std_logic_vector(3 downto 0);     --- Define um barramento de 3 bits como saída da ALU.
   sel    in      :    std_logic_vector(2 downto 0)      --- Define um barramento de entrada de 3 bits como seleção da ALU.
 );
-end ALU_3bits;                                                --- Encerra as definições de pino para a entidade "alu".
+end ALU_3bits;                                          --- Encerra as definições de pino para a entidade "alu".
 
 architecture hardware of ALU_3bits is                   --- Inicia as configurações de hardware interno da "alu".
 begin                                                   --- Inicia as configurações de hardware interno da "alu".
@@ -51,7 +51,7 @@ begin                                                   --- Inicia as configura�
       when "100" => O <= A XOR B;                       --- Enquanto o sel = "100", indica a saída 'O' como a operação lógica A xor B.
       when "101" => O <= NOT A;                         --- Enquanto o sel = "101", indica a saída 'O' como a operação lógica not A.
       when "110" => O <= NOT B;                         --- Enquanto o sel = "110", indica a saída 'O' como a operação lógica not B.
-      when "111" => O <= Z;                             --- Enquanto o sel = "111", indica a saída 'O' como sendo uma impedância alta.
+      when others => O <= "ZZZZ";                       --- Enquanto o sel = "111", indica a saída 'O' como sendo uma impedância alta.
     end case;                                           --- Encerra o case.
   end process;                                          --- Enecrra a execução do código em sequencial.
 end hardware;                                           --- Finaliza a configuração de harware da ALU.
