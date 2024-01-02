@@ -41,14 +41,14 @@ use IEEE.std_logic_unsigned.all;
 
 entity bcd7seg is port
   (
-    dig_4bits in     :    std_logic_vector(3 downto 0);
-    seg7 out         :    std_logic_vector(3 downto 0)
-  )
+    dig_4bits     :    in std_logic_vector(3 downto 0);
+    seg7          :    out std_logic_vector(7 downto 0)
+  );
 end bcd7seg;
 
 architecture hardware of bcd7seg is
 begin
-  process(dig_4bits,seg7)
+  process(dig_4bits)
   begin
     case dig_4bits is
       when "0000" => seg7 <= "11000000";
@@ -67,6 +67,7 @@ begin
       when "1101" => seg7 <= "10100001";
       when "1110" => seg7 <= "10000110";
       when "1111" => seg7 <= "10001110";
+      when others => seg7 <= "11111111";
     end case;
   end process;
 end hardware;
